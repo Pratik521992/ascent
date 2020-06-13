@@ -4,11 +4,28 @@ import {
   Link,
 } from "react-feather"
 
-class UserSocialTab extends React.Component {
-  render() {
+const {useState} = React;
+
+export function UserSocialTab({postAddUser}) {
+  const [userData, setUserDate] = useState({
+    firstName: '',
+    lastName: '',
+    username: '',
+    role: '',
+    password: '',
+    phonenumber: ''
+  });
+
+  const onChangeData = (event) => {
+    setUserDate({
+      ...userData,
+      [event.id]: event.value
+    })
+  }
+
     return (
         <React.Fragment>
-      <Form className="mt-2" onSubmit={e => e.preventDefault()}>
+      <Form className="mt-2" onSubmit={postAddUser(userData)}>
         <h5 className="mb-1">
           <Link size={15} />
           <span className="align-middle ml-50">Add User</span>
@@ -17,22 +34,22 @@ class UserSocialTab extends React.Component {
           <Col md="6" sm="12">
             <Label for="twitter">First Name</Label>
             <FormGroup className="position-relative">
-              <Input id="first-name" placeholder="" />
+              <Input id="firstname" placeholder="" onChange={onChangeData} />
              
             </FormGroup>
             <Label for="facebook">Last Name</Label>
             <FormGroup className="position-relative">
-              <Input id="last-name" placeholder="" />
+              <Input id="lastname" placeholder="" onChange={onChangeData}/>
              
             </FormGroup>
             <Label for="instagram">User Name</Label>
             <FormGroup className="position-relative">
-              <Input id="user-name" placeholder="" />
+              <Input id="username" placeholder="" onChange={onChangeData}/>
              
             </FormGroup>
             <Label for="instagram">Role</Label>
             <FormGroup className="position-relative">
-                <Input type="select" name="role" id="role">
+                <Input type="select" name="role" id="role" onChange={onChangeData}>
                     <option>select user</option>
                     <option>select user</option>
                     <option>select user</option>
@@ -43,12 +60,12 @@ class UserSocialTab extends React.Component {
             </FormGroup>
             <Label for="instagram">Password</Label>
             <FormGroup className="position-relative">
-              <Input id="password" type="password" placeholder="" />
+              <Input id="password" type="password" placeholder="" onChange={onChangeData}/>
              
             </FormGroup>
             <Label for="instagram">Phone Number</Label>
             <FormGroup className="position-relative">
-              <Input id="phone-number" type="number" placeholder="" />
+              <Input id="phonenumber" type="number" placeholder="" onChange={onChangeData}/>
              
             </FormGroup>
           </Col>
@@ -67,5 +84,4 @@ class UserSocialTab extends React.Component {
       </React.Fragment>
     )
   }
-}
 export default UserSocialTab

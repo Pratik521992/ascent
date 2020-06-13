@@ -46,7 +46,7 @@ class Login extends React.Component {
                 lg="6"
                 className="d-lg-block d-none text-center align-self-center px-1 py-0"
               >
-                <img src={logo} height="250" width="300" alt="Logo" />
+                <img src={logo} height="250" width="400" alt="Logo" />
                 <img src={loginImg} alt="loginImg" />
               </Col>
               <Col lg="6" md="12" className="p-0">

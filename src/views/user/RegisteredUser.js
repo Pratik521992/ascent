@@ -128,8 +128,8 @@ class RegisteredUser extends React.Component {
   }
 
   async componentDidMount() {
-    await axios.get("api/users/list").then(response => {
-      let rowData = response.data
+    await axios.get("/api/registeredusers").then(response => {
+      let rowData = response.Data
       console.log(rowData)
       this.setState({ rowData })
     })

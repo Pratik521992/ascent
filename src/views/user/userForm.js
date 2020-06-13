@@ -13,6 +13,7 @@ import {
 import AddUser from "./addUser"
 import RegisteredUser from './RegisteredUser'
 import "../../assets/scss/pages/users.scss"
+import {postAddUser} from '../../redux/actions/addUser/addUser'
 class UserEdit extends React.Component {
   state = {
     activeTab: "1"
@@ -29,7 +30,7 @@ class UserEdit extends React.Component {
         <Col sm="12">
           <Card>
             <CardBody className="pt-2">
-                <AddUser />
+                <AddUser postAddUser={postAddUser}/>
             </CardBody>
           </Card>
           <RegisteredUser />

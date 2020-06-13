@@ -22,7 +22,7 @@ const UserName = props => {
       props.user.login.values.loggedInWith !== undefined &&
       props.user.login.values.loggedInWith === "jwt"
     ) {
-      username = props.user.login.values.loggedInUser.name
+      username = props.user.login.values.loggedInUser
     }
   } else {
     username = "John Doe"
